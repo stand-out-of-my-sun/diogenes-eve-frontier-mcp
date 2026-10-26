@@ -2,7 +2,7 @@
   {
     "name": "inspect_eve_assembly_state",
     "title": "EVE Frontier Smart Assembly On-Chain State & Capability Inspector",
-    "description": "Inspects live EVE Frontier Smart Assembly on-chain object metadata, owner capability ID, online power status, and attached Sui Move package digest. Use when verifying whether a Smart Turret, Smart Gate, or Smart Storage Unit is online and checking its bound Move module before interacting; for generating or auditing custom Sui Move assembly source code, use generate_eve_assembly_move instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'assembly_id' ('assembly_class' defaults to 'smart_gate'), supports '?demo=true' or L402 (80 sats), and returns HTTP 400 if invalid.",
+    "description": "Inspects live EVE Frontier Smart Assembly on-chain object metadata, owner capability ID, online power status, and attached Sui Move package digest. Use when verifying whether a Smart Turret, Smart Gate, or Smart Storage Unit is online and checking its bound Move module before interacting; for generating or auditing custom Sui Move assembly source code, use generate_eve_assembly_move instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'assembly_id' ('assembly_class' defaults to 'smart_gate'), supports '?demo=true' or L402 (20 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -64,7 +64,7 @@
   {
     "name": "audit_eve_tribe_standings",
     "title": "EVE Frontier Tribe Diplomatic Standings & Access Matrix Auditor",
-    "description": "Audits EVE Frontier Tribe diplomatic standings, friendly/hostile reputation scores, and pilot override entries across solar systems. Use when checking diplomatic relations or detecting conflicting friendly-fire rules across tribe registries; for compiling those standings into executable Sui Move Smart Gate ACL bytecode, use compile_eve_gate_acl instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'tribe_id' ('standing_filter' defaults to 'all'), supports '?demo=true' or L402 (80 sats), and returns HTTP 400 if invalid.",
+    "description": "Audits EVE Frontier Tribe diplomatic standings, friendly/hostile reputation scores, and pilot override entries across solar systems. Use when checking diplomatic relations or detecting conflicting friendly-fire rules across tribe registries; for compiling those standings into executable Sui Move Smart Gate ACL bytecode, use compile_eve_gate_acl instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'tribe_id' ('standing_filter' defaults to 'all'), supports '?demo=true' or L402 (20 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -126,7 +126,7 @@
   {
     "name": "generate_eve_assembly_move",
     "title": "EVE Frontier Sui Move Smart Assembly Contract Generator & Auditor",
-    "description": "Generates and statically audits Sui Move smart contract modules for EVE Frontier Smart Assemblies using Witness, Capability, and HotPotato patterns. Use when authoring custom Sui Move extensions for Smart Gates, Smart Turrets, or Smart Storage Units; for simulating pre-signed Programmable Transaction Block command arrays before wallet execution, use simulate_eve_sui_ptb instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'contract_type' ('assembly_id' defaults to 'standard'), supports '?demo=true' or L402 (200 sats), and returns HTTP 400 if invalid.",
+    "description": "Generates and statically audits Sui Move smart contract modules for EVE Frontier Smart Assemblies using Witness, Capability, and HotPotato patterns. Use when authoring custom Sui Move extensions for Smart Gates, Smart Turrets, or Smart Storage Units; for simulating pre-signed Programmable Transaction Block command arrays before wallet execution, use simulate_eve_sui_ptb instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'contract_type' ('assembly_id' defaults to 'standard'), supports '?demo=true' or L402 (45 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -188,7 +188,7 @@
   {
     "name": "compile_eve_gate_acl",
     "title": "EVE Frontier Smart Gate Tribe ACL & Dynamic Toll Bytecode Compiler",
-    "description": "Compiles EVE Frontier Tribe access control lists, diplomatic standings, and surge-pricing toll rules into Sui Move Smart Gate AccessPolicy constraints. Use when configuring on-chain jump permissions and LUX/SUI toll schedules for a player-owned Smart Gate; for calculating optimal multi-system jump routes across existing stargates, use plan_eve_gate_route instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'gate_assembly_id' ('toll_mode' defaults to 'standing_tiered'), supports '?demo=true' or L402 (130 sats), and returns HTTP 400 if invalid.",
+    "description": "Compiles EVE Frontier Tribe access control lists, diplomatic standings, and surge-pricing toll rules into Sui Move Smart Gate AccessPolicy constraints. Use when configuring on-chain jump permissions and LUX/SUI toll schedules for a player-owned Smart Gate; for calculating optimal multi-system jump routes across existing stargates, use plan_eve_gate_route instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'gate_assembly_id' ('toll_mode' defaults to 'standing_tiered'), supports '?demo=true' or L402 (30 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -250,7 +250,7 @@
   {
     "name": "simulate_eve_sui_ptb",
     "title": "EVE Frontier Sui Move PTB Coin-Drain & HotPotato Safety Simulator",
-    "description": "Simulates Sui Programmable Transaction Block (PTB) command sequences to detect unauthorized coin splits, object transfers, and unconsumed HotPotato receipts. Use when auditing an untrusted EVE Frontier transaction bundle before signing with a pilot wallet; for verifying pilot zkLogin JWT proofs and character ownership capabilities, use verify_eve_zklogin_character instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'ptb_commands_json' ('strictness_mode' defaults to 'strict_zero_drain'), supports '?demo=true' or L402 (150 sats), and returns HTTP 400 if invalid.",
+    "description": "Simulates Sui Programmable Transaction Block (PTB) command sequences to detect unauthorized coin splits, object transfers, and unconsumed HotPotato receipts. Use when auditing an untrusted EVE Frontier transaction bundle before signing with a pilot wallet; for verifying pilot zkLogin JWT proofs and character ownership capabilities, use verify_eve_zklogin_character instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'ptb_commands_json' ('strictness_mode' defaults to 'strict_zero_drain'), supports '?demo=true' or L402 (35 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -311,7 +311,7 @@
   {
     "name": "verify_eve_zklogin_character",
     "title": "EVE Frontier Sui zkLogin BN254 Proof & SmartCharacter Verifier",
-    "description": "Verifies EVE Frontier Sui zkLogin BN254 zero-knowledge proofs, ephemeral session signatures, and SmartCharacter ownership capabilities. Use when authenticating a pilot's off-chain OAuth/zkLogin session before granting tribe vault or dApp access; for auditing tribe-wide diplomatic standings and reputation registries, use audit_eve_tribe_standings instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'jwt_proof' ('ephemeral_scheme' defaults to 'ED25519'), supports '?demo=true' or L402 (100 sats), and returns HTTP 400 if invalid.",
+    "description": "Verifies EVE Frontier Sui zkLogin BN254 zero-knowledge proofs, ephemeral session signatures, and SmartCharacter ownership capabilities. Use when authenticating a pilot's off-chain OAuth/zkLogin session before granting tribe vault or dApp access; for auditing tribe-wide diplomatic standings and reputation registries, use audit_eve_tribe_standings instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'jwt_proof' ('ephemeral_scheme' defaults to 'ED25519'), supports '?demo=true' or L402 (25 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -372,7 +372,7 @@
   {
     "name": "plan_eve_gate_route",
     "title": "EVE Frontier Multi-Hop Smart Gate Fuel & Toll Route Planner",
-    "description": "Calculates optimal stargate jump routes between EVE Frontier solar systems minimizing gigajoule fuel consumption, LUX gate tolls, or jump count. Use when plotting a ship transit path across public and tribe-restricted Smart Gates; for identifying multi-system commodity arbitrage trade loops across Smart Storage Units, use find_eve_ssu_arbitrage instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'origin_system' ('destination_system' defaults to 'standard'), supports '?demo=true' or L402 (100 sats), and returns HTTP 400 if invalid.",
+    "description": "Calculates optimal stargate jump routes between EVE Frontier solar systems minimizing gigajoule fuel consumption, LUX gate tolls, or jump count. Use when plotting a ship transit path across public and tribe-restricted Smart Gates; for identifying multi-system commodity arbitrage trade loops across Smart Storage Units, use find_eve_ssu_arbitrage instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'origin_system' ('destination_system' defaults to 'standard'), supports '?demo=true' or L402 (25 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -439,7 +439,7 @@
   {
     "name": "optimize_eve_node_power",
     "title": "EVE Frontier Lagrange Network Node Gigajoule & Fuel Burn Optimizer",
-    "description": "Calculates Lagrange Network Node hourly gigajoule (GJ) fuel burn rates, capacity headroom, and offline vulnerability windows for connected Smart Assemblies. Use when balancing steady-state power allocations on a single Lagrange Network Node; for stress-testing node capacitor depletion under active hostile fleet bombardment, use simulate_eve_capacitor_siege instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'node_id' ('operating_profile' defaults to 'balanced'), supports '?demo=true' or L402 (100 sats), and returns HTTP 400 if invalid.",
+    "description": "Calculates Lagrange Network Node hourly gigajoule (GJ) fuel burn rates, capacity headroom, and offline vulnerability windows for connected Smart Assemblies. Use when balancing steady-state power allocations on a single Lagrange Network Node; for stress-testing node capacitor depletion under active hostile fleet bombardment, use simulate_eve_capacitor_siege instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'node_id' ('operating_profile' defaults to 'balanced'), supports '?demo=true' or L402 (25 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -500,7 +500,7 @@
   {
     "name": "simulate_eve_capacitor_siege",
     "title": "EVE Frontier Lagrange Node Siege Capacitor Depletion Simulator",
-    "description": "Simulates Lagrange Network Node gigajoule (GJ) capacitor drain under sustained hostile fleet siege and computes optimal assembly load-shedding order. Use when preparing base defense power-shedding schedules against an incoming hostile fleet; for calculating routine peacetime fuel burn and reserve headroom, use optimize_eve_node_power instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'node_id' ('siege_intensity' defaults to 'skirmish_frigate_squad'), supports '?demo=true' or L402 (135 sats), and returns HTTP 400 if invalid.",
+    "description": "Simulates Lagrange Network Node gigajoule (GJ) capacitor drain under sustained hostile fleet siege and computes optimal assembly load-shedding order. Use when preparing base defense power-shedding schedules against an incoming hostile fleet; for calculating routine peacetime fuel burn and reserve headroom, use optimize_eve_node_power instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'node_id' ('siege_intensity' defaults to 'skirmish_frigate_squad'), supports '?demo=true' or L402 (30 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -561,7 +561,7 @@
   {
     "name": "monitor_eve_constellation_fuel",
     "title": "EVE Frontier Constellation Sovereignty & Multi-Node Fuel Radar",
-    "description": "Monitors constellation-wide Lagrange Network Node fuel reserves, identifies the weakest sovereignty node, and calculates logistics convoy resupply urgency. Use when auditing multi-system sovereignty fuel health across an entire tribe constellation; for optimizing gigajoule load on a single individual Lagrange Network Node, use optimize_eve_node_power instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'constellation_id' ('alert_threshold_hours' defaults to '24h'), supports '?demo=true' or L402 (140 sats), and returns HTTP 400 if invalid.",
+    "description": "Monitors constellation-wide Lagrange Network Node fuel reserves, identifies the weakest sovereignty node, and calculates logistics convoy resupply urgency. Use when auditing multi-system sovereignty fuel health across an entire tribe constellation; for optimizing gigajoule load on a single individual Lagrange Network Node, use optimize_eve_node_power instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'constellation_id' ('alert_threshold_hours' defaults to '24h'), supports '?demo=true' or L402 (30 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -623,7 +623,7 @@
   {
     "name": "quote_eve_ssu_market",
     "title": "EVE Frontier Smart Storage Unit (SSU) Bonding-Curve Market Pricer",
-    "description": "Computes dynamic bonding-curve bid/ask quotes in LUX and per-transaction anti-drain caps for a player-owned Smart Storage Unit (SSU). Use when setting automated market-maker buy/sell prices for a single SSU vending inventory; for scanning multiple SSUs across star systems to find profitable trade routes, use find_eve_ssu_arbitrage instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'resource_type' ('pricing_regime' defaults to 'inventory_balanced'), supports '?demo=true' or L402 (120 sats), and returns HTTP 400 if invalid.",
+    "description": "Computes dynamic bonding-curve bid/ask quotes in LUX and per-transaction anti-drain caps for a player-owned Smart Storage Unit (SSU). Use when setting automated market-maker buy/sell prices for a single SSU vending inventory; for scanning multiple SSUs across star systems to find profitable trade routes, use find_eve_ssu_arbitrage instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'resource_type' ('pricing_regime' defaults to 'inventory_balanced'), supports '?demo=true' or L402 (25 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -684,7 +684,7 @@
   {
     "name": "find_eve_ssu_arbitrage",
     "title": "EVE Frontier Multi-System SSU Commodity Arbitrage Route Finder",
-    "description": "Scans Smart Storage Unit (SSU) bid/ask spreads across star systems against ship cargo capacity and stargate fuel costs to rank net-profitable arbitrage loops. Use when planning multi-system trade runs to maximize net LUX profit per gigajoule of fuel burned; for calculating internal bid/ask market-maker quotes for your own SSU, use quote_eve_ssu_market instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'origin_system' ('hull_cargo_class' defaults to 'light_courier'), supports '?demo=true' or L402 (140 sats), and returns HTTP 400 if invalid.",
+    "description": "Scans Smart Storage Unit (SSU) bid/ask spreads across star systems against ship cargo capacity and stargate fuel costs to rank net-profitable arbitrage loops. Use when planning multi-system trade runs to maximize net LUX profit per gigajoule of fuel burned; for calculating internal bid/ask market-maker quotes for your own SSU, use quote_eve_ssu_market instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'origin_system' ('hull_cargo_class' defaults to 'light_courier'), supports '?demo=true' or L402 (30 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -745,7 +745,7 @@
   {
     "name": "analyze_eve_killmail_threats",
     "title": "EVE Frontier On-Chain Killmail Threat & Gatecamp Ambush Analyzer",
-    "description": "Analyzes on-chain EVE Frontier killmail.move events in a solar system to quantify gatecamp ambush probability and identify dominant hostile hull doctrines. Use when assessing solar system PvP danger before jumping a hauler or fleet into a system; for computing real-time weapon target-lock priorities during active grid combat, use prioritize_eve_turret_targets instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'system_id' ('time_window' defaults to '1h'), supports '?demo=true' or L402 (150 sats), and returns HTTP 400 if invalid.",
+    "description": "Analyzes on-chain EVE Frontier killmail.move events in a solar system to quantify gatecamp ambush probability and identify dominant hostile hull doctrines. Use when assessing solar system PvP danger before jumping a hauler or fleet into a system; for computing real-time weapon target-lock priorities during active grid combat, use prioritize_eve_turret_targets instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'system_id' ('time_window' defaults to '1h'), supports '?demo=true' or L402 (30 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -807,7 +807,7 @@
   {
     "name": "prioritize_eve_turret_targets",
     "title": "EVE Frontier Smart Turret Angular Tracking & Target Priority Calculator",
-    "description": "Evaluates radar contacts by range, transversal velocity, and Tribe standing to output deterministic Smart Turret target-lock priorities and fire authorizations. Use when ranking active grid radar contacts for automated Smart Turret engagement; for reviewing historical solar system killmails and ambush probabilities before transit, use analyze_eve_killmail_threats instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'turret_id' ('engagement_doctrine' defaults to 'highest_threat'), supports '?demo=true' or L402 (125 sats), and returns HTTP 400 if invalid.",
+    "description": "Evaluates radar contacts by range, transversal velocity, and Tribe standing to output deterministic Smart Turret target-lock priorities and fire authorizations. Use when ranking active grid radar contacts for automated Smart Turret engagement; for reviewing historical solar system killmails and ambush probabilities before transit, use analyze_eve_killmail_threats instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'turret_id' ('engagement_doctrine' defaults to 'highest_threat'), supports '?demo=true' or L402 (25 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
